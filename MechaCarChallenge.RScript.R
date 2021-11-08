@@ -14,3 +14,9 @@ lot <- group_by(SuspensionCoil,Manufacturing_Lot)
 lot_summary <- summarize(lot,mean(PSI),median(PSI),var(PSI),sd(PSI))
 
 
+
+#Deliverable 3: T-Tests on Suspension Coils
+t.test(SuspensionCoil$PSI,mu=total_summary$`mean(PSI)`)
+t.test(subset(SuspensionCoil,Manufacturing_Lot == "Lot1")$PSI,mu=total_summary$`mean(PSI)`)
+t.test(subset(SuspensionCoil,Manufacturing_Lot == "Lot2")$PSI,mu=total_summary$`mean(PSI)`)
+t.test(subset(SuspensionCoil,Manufacturing_Lot == "Lot3")$PSI,mu=total_summary$`mean(PSI)`)
